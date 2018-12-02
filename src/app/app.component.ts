@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'workshop-theory';
+
+  toggle() {
+    if (this.title !== 'workshop-theory 😎') {
+      this.title = 'workshop-theory 😎';
+    } else {
+      this.title = 'workshop-theory 🤩';
+    }
+  }
 }
