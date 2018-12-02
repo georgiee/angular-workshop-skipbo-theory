@@ -1,3 +1,12 @@
-<app-some-component appOne appTwo appThree #myComponent></app-some-component>
+<app-some-component
+  appOne appTwo appThree
+  #myComponent
+  #myComponent1='myAppOne'
+  #myComponent2='myAppTwo'
+  #myComponent3='myAppThree'>
+</app-some-component>
 
-<button (click)="myComponent.probe()">probe</button>
+<button (click)="myComponent.probe()">probe Default</button>
+<button (click)="myComponent1.probe()">probe 1</button>
+<button (click)="myComponent2.probe()">probe 2</button>
+<button (click)="myComponent3.probe()">probe 3</button>

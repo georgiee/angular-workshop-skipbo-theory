@@ -1,7 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appTwo]'
+  selector: '[appTwo]',
+  exportAs: 'myAppTwo'
 })
 export class TwoDirective {
 

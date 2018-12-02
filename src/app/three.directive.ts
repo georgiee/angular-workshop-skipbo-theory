@@ -1,7 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appThree]'
+  selector: '[appThree]',
+  exportAs: 'myAppThree'
 })
 export class ThreeDirective {
 
