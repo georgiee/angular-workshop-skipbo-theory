@@ -3,29 +3,24 @@ import { CommonModule } from '@angular/common';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
 import { LazyFeatureComponent } from './lazy-feature/lazy-feature.component';
-import { RouterModule, Route } from '@angular/router';
 
-const routes: Route[] = [
-  {
-    path: '', component: LazyFeatureComponent,
-    children: [
-      {
-        path: '', redirectTo: 'a', pathMatch: 'full'
-      },
-      {
-        path: 'a', component: AComponent,
-      },
-      {
-        path: 'b', component: BComponent,
-      }
-    ]
-  },
-]
 @NgModule({
   declarations: [AComponent, BComponent, LazyFeatureComponent],
   imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
+    CommonModule
+  ],
+  entryComponents: [
+    // we already learned, that whenever you want to creat a dynamic component
+    // it must appear in this list.
+    LazyFeatureComponent,
+    AComponent,
+    BComponent
   ]
 })
-export class LazyFeatureModule { }
+export class LazyFeatureModule {
+  static myEntry = LazyFeatureComponent;
+  static otherComponent = {
+    a: AComponent,
+    b: BComponent
+  };
+}

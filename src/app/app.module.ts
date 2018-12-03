@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 const routes = [
-  {path: 'my-lazy-feature', loadChildren: './lazy-feature/lazy-feature.module#LazyFeatureModule'}
 ];
 
 @NgModule({
