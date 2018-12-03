@@ -9,7 +9,8 @@ import { MyProtectorGuard } from './my-protector.guard';
 const routes: Route[] = [
   {
     path: 'some-route', component: AComponent,
-    canActivate: [MyProtectorGuard]
+    canActivate: [MyProtectorGuard],
+    resolve: [MyProtectorGuard]
   }
 ];
 
