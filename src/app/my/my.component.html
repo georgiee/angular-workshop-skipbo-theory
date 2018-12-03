@@ -2,3 +2,12 @@
 <div [@stateAnimation]="state" *ngIf='showElement'>
   animate me
 </div>
+
+<button (click)='showAll=!showAll'>show</button>
+<div @boxAddRemoveAnimation class="box"></div>
+<div @boxAddRemoveAnimation class="box" *ngIf='showAll'></div>
+<div @boxAddRemoveAnimation class="box"></div>
+<div @boxAddRemoveAnimation class="box" *ngIf='showAll'></div>
+<div @boxAddRemoveAnimation class="box"></div>
+<div @boxAddRemoveAnimation class="box" *ngIf='showAll'></div>
+<div @boxAddRemoveAnimation class="box"></div>
