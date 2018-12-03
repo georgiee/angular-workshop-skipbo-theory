@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fromEvent, Observable, interval, Subject, ConnectableObservable } from 'rxjs';
+import { fromEvent, Observable, interval, Subject, ConnectableObservable, BehaviorSubject } from 'rxjs';
 import { take, refCount, publish, tap, multicast } from 'rxjs/operators';
 import { tag } from 'rxjs-spy/operators/tag';
 import { create } from 'rxjs-spy';
@@ -18,13 +18,16 @@ export class AppComponent {
   changed$ = new Subject();
 
   constructor() {
+    const subjectA = new Subject();
+    const subjectB = new BehaviorSubject(null);
 
-    this.changed$.subscribe(() => {
-      console.log('something changed')
-    });
+    subjectA.next('your loaded data');
+    subjectB.next('your loaded data');
 
-    this.changed$.next();
-    setTimeout(() => this.changed$.next(), 500);
-    setTimeout(() => this.changed$.next(), 1200);
+    subjectA.subscribe(value => console.log('value from subjectA:', value));
+    subjectB.subscribe(value => console.log('value from subjectB:', value));
+
+    // result:
+    // value from subjectB: your loaded data
   }
 }
