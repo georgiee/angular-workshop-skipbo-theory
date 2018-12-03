@@ -1,15 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { AComponent } from './lazy-feature/a/a.component';
+import { MyProtectorGuard } from './my-protector.guard';
 
-const routes = [
+const routes: Route[] = [
+  {
+    path: 'some-route', component: AComponent,
+    canActivate: [MyProtectorGuard]
+  }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, AComponent
   ],
   imports: [
     BrowserModule,

@@ -17,9 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "lazyModules": [
-              "src/app/lazy-feature/lazy-feature.module"
-            ],
             "outputPath": "dist/workshop-theory",
             "index": "src/index.html",
             "main": "src/main.ts",
