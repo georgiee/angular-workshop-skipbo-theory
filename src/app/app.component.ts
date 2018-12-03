@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 import { create } from 'rxjs-spy';
 
-
-const spy = create();
-spy.log();
+// causes an async timeout in tests
+// const spy = create();
+// spy.log();
 
 @Component({
   selector: 'app-root',
