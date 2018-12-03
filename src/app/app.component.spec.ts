@@ -1,4 +1,4 @@
-import { TestBed, async, fakeAsync, tick, flushMicrotasks } from '@angular/core/testing';
+import { TestBed, async, fakeAsync, tick, flushMicrotasks, flush } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { Component, ViewChild } from '@angular/core';
 
@@ -53,6 +53,19 @@ describe('AppComponent', () => {
     tick(2000);
     expect(state).toEqual(['promise result', 'timeout called', 'timeout called after 2s']);
   }));
+
+  it('setTimeout(0) & tick ', fakeAsync(() => {
+    let state = [];
+
+    setTimeout(() => { state.push('timeout called'); });
+    setTimeout(() => { state.push('timeout called after 2s'); }, 2000);
+
+    expect(state).toEqual([]);
+
+    flush();
+    expect(state).toEqual(['timeout called', 'timeout called after 2s']);
+  }));
+
 });
 
 
