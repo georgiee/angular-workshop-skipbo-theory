@@ -1,3 +1,4 @@
-<p>
-  my works!
-</p>
+<button (click)='showElement = true'>show element</button>
+<div [@stateAnimation]="state" *ngIf='showElement'>
+  animate me
+</div>
