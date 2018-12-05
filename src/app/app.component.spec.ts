@@ -28,7 +28,7 @@ describe('AppComponent', () => {
     expect(nativeElementCounter.textContent.trim()).toBe('1');
   });
 
-  fit('changes should be true', () => {
+  it('changes should be true', () => {
     const fixture = TestBed.createComponent(AppTestComponent);
     fixture.detectChanges();
 
