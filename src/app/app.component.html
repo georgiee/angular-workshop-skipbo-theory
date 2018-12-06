@@ -1,1 +1,9 @@
-<app-my></app-my>
+<a routerLink='a'>go to a</a><br>
+<a routerLink='b'>go to b</a>
+
+<div
+  [@routeAnimation]="yourOutlet.isActivated && yourOutlet.activatedRoute.routeConfig.path"
+  (@routeAnimation.start)="start($event)"
+  (@routeAnimation.done)="end($event)">
+  <router-outlet #yourOutlet="outlet"></router-outlet>
+</div>
